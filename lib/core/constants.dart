@@ -1,0 +1,1 @@
+const double kTextfieldGap = 25;
