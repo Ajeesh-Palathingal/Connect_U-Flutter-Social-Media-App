@@ -1,9 +1,9 @@
 import 'package:connect_u/core/colors.dart';
 import 'package:connect_u/core/constants.dart';
 import 'package:connect_u/presentation/home/home_screen.dart';
-import 'package:connect_u/presentation/login&signup/signup_screen.dart';
-import 'package:connect_u/presentation/login&signup/widgets/custom_icon_text_field.dart';
-import 'package:connect_u/presentation/login&signup/widgets/custom_password_text_field.dart';
+import 'package:connect_u/presentation/authentication/signup_screen.dart';
+import 'package:connect_u/presentation/authentication/widgets/custom_icon_text_field.dart';
+import 'package:connect_u/presentation/authentication/widgets/custom_password_text_field.dart';
 import 'package:connect_u/presentation/main_page/main_page_screen.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +14,7 @@ import '../widgets/custom_text.dart';
 class LoginScreen extends StatelessWidget {
   LoginScreen({super.key});
 
-  final _userNameController = TextEditingController();
+  final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   final _validationKey = GlobalKey<FormState>();
   @override
@@ -38,10 +38,10 @@ class LoginScreen extends StatelessWidget {
                 child: Column(
                   children: [
                     CustomIconTextField(
-                      icon: Icons.person_2_outlined,
-                      hintText: "USERNAME",
-                      controller: _userNameController,
-                      activateErrorText: false,
+                      icon: Icons.email_outlined,
+                      hintText: "EMAIL",
+                      controller: _emailController,
+                      activateErrorText: true,
                     ),
 
                     const SizedBox(
@@ -136,7 +136,7 @@ class LoginScreen extends StatelessWidget {
   }
 
   Future<bool> validLogin() async {
-    if (_userNameController.text == "user" && _passwordController.text == "1234") {
+    if (_emailController.text == "abc@gmail.com" && _passwordController.text == "1234") {
       final _sharedPref = await SharedPreferences.getInstance();
       _sharedPref.setBool(LOGIN_STATUS, true);
       print("saved sh value = ${_sharedPref.getBool(LOGIN_STATUS)}");

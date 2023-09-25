@@ -1,4 +1,4 @@
-import 'package:connect_u/presentation/login&signup/signup_screen.dart';
+import 'package:connect_u/presentation/authentication/signup_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../../../core/colors.dart';

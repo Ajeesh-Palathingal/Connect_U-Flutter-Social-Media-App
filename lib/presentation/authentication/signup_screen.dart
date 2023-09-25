@@ -1,9 +1,9 @@
 import 'package:connect_u/core/colors.dart';
 import 'package:connect_u/core/constants.dart';
 import 'package:connect_u/presentation/home/home_screen.dart';
-import 'package:connect_u/presentation/login&signup/login_screen.dart';
-import 'package:connect_u/presentation/login&signup/widgets/custom_icon_text_field.dart';
-import 'package:connect_u/presentation/login&signup/widgets/custom_password_text_field.dart';
+import 'package:connect_u/presentation/authentication/login_screen.dart';
+import 'package:connect_u/presentation/authentication/widgets/custom_icon_text_field.dart';
+import 'package:connect_u/presentation/authentication/widgets/custom_password_text_field.dart';
 import 'package:connect_u/presentation/main_page/main_page_screen.dart';
 import 'package:connect_u/presentation/widgets/custom_text.dart';
 import 'package:flutter/gestures.dart';

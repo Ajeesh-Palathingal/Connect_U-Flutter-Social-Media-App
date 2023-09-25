@@ -1,5 +1,5 @@
 import 'package:connect_u/core/colors.dart';
-import 'package:connect_u/presentation/login&signup/signup_screen.dart';
+import 'package:connect_u/presentation/authentication/signup_screen.dart';
 import 'package:flutter/material.dart';
 
 class CustomIconTextField extends StatelessWidget {
@@ -51,7 +51,7 @@ class CustomIconTextField extends StatelessWidget {
       validator: (value) {
         // print("valid mail ${validMail.hasMatch(emailController.text)}");
         if (!validMail.hasMatch(controller.text) && activateErrorText && hintText == "EMAIL") {
-          return "Enter a valid mail!";
+          return "Enter a valid Email address!";
         } else if ((value == null || value.length < 3) && activateErrorText) {
           return errorText;
         }

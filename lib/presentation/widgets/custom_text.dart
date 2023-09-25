@@ -1,3 +1,4 @@
+import 'package:connect_u/core/colors.dart';
 import 'package:flutter/material.dart';
 
 class CustomText extends StatelessWidget {
@@ -5,7 +6,7 @@ class CustomText extends StatelessWidget {
     super.key,
     required this.text,
     this.size = 15,
-    required this.color,
+    this.color = kBlackColor,
     this.fontweight = FontWeight.normal,
   });
 
