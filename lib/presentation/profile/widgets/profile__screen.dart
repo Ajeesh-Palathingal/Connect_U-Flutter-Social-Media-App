@@ -1,11 +1,15 @@
 import 'package:connect_u/core/colors.dart';
 import 'package:connect_u/core/constants.dart';
+import 'package:connect_u/presentation/authentication/login_screen.dart';
 import 'package:connect_u/presentation/chats/chatting_screen.dart';
 import 'package:connect_u/presentation/following/following_screen.dart';
+import 'package:connect_u/presentation/main_page/widgets/bottom_navigation.dart';
 import 'package:connect_u/presentation/profile/widgets/poster_image.dart';
 
 import 'package:connect_u/presentation/widgets/custom_text.dart';
 import 'package:connect_u/presentation/widgets/person_list_tile.dart';
+import 'package:connect_u/service/auth_service.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -57,13 +61,15 @@ class ProfileScreen extends StatelessWidget {
                           fontweight: FontWeight.bold,
                         ),
                       ),
+
+                      //sign out button
                       Positioned(
                         right: 0,
                         child: GestureDetector(
                           onTap: () async {
-                            final _sharedPref = await SharedPreferences.getInstance();
-                            _sharedPref.clear();
-                            print("User logout");
+                            final authservice = AuthServices();
+                            await authservice.signOut();
+                            Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (BuildContext context) => LoginScreen()), ModalRoute.withName('/'));
                           },
                           child: Icon(
                             Icons.logout,
@@ -129,8 +135,7 @@ class ProfileScreen extends StatelessWidget {
                         width: 100,
                         child: ElevatedButton(
                           onPressed: () {
-                            Navigator.of(context)
-                                .push(MaterialPageRoute(builder: (context) => ChattingScreen(name: name, friendAvatarUrl: profileImageUrl)));
+                            Navigator.of(context).push(MaterialPageRoute(builder: (context) => ChattingScreen(name: name, friendAvatarUrl: profileImageUrl)));
                           },
                           child: const Text("MESSAGE"),
                         ),

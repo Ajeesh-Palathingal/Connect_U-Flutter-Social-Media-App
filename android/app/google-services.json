@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "133235663929",
+    "project_id": "connectu---social-media-app",
+    "storage_bucket": "connectu---social-media-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:133235663929:android:7b23d7e9baa890e08a99e8",
+        "android_client_info": {
+          "package_name": "com.example.connect_u"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD6ZBCJJgT3RRuNk6JNhQIycU85KtnTu84"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
