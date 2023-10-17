@@ -58,37 +58,42 @@ class ChattingScreen extends StatelessWidget {
                           // displaying first message
                           if (index == 0) {
                             //checking whether its the user or friend
-                            if (messageList[index]['id'] == 1) { 
-                              return MessageTile(
-                                showAvatar: true,
-                                avatarUrl: friendAvatarUrl,
-                                id: messageList[index]['id'].toString(),
-                                message: messageList[index]['message'].toString(),
-                              );
-                            } else {
-                              return MessageTile(
-                                showAvatar: true,
-                                avatarUrl: "https://tinyurl.com/5xmbz9k4",
-                                id: messageList[index]['id'].toString(),
-                                message: messageList[index]['message'].toString(),
-                              );
-                            }
-                          } 
-                          // checking whether want to display avathar with the message or not
-                          else if (messageList[index]['id'] != messageList[index - 1]['id']) {
                             if (messageList[index]['id'] == 1) {
                               return MessageTile(
                                 showAvatar: true,
                                 avatarUrl: friendAvatarUrl,
                                 id: messageList[index]['id'].toString(),
-                                message: messageList[index]['message'].toString(),
+                                message:
+                                    messageList[index]['message'].toString(),
                               );
                             } else {
                               return MessageTile(
                                 showAvatar: true,
                                 avatarUrl: "https://tinyurl.com/5xmbz9k4",
                                 id: messageList[index]['id'].toString(),
-                                message: messageList[index]['message'].toString(),
+                                message:
+                                    messageList[index]['message'].toString(),
+                              );
+                            }
+                          }
+                          // checking whether want to display avathar with the message or not
+                          else if (messageList[index]['id'] !=
+                              messageList[index - 1]['id']) {
+                            if (messageList[index]['id'] == 1) {
+                              return MessageTile(
+                                showAvatar: true,
+                                avatarUrl: friendAvatarUrl,
+                                id: messageList[index]['id'].toString(),
+                                message:
+                                    messageList[index]['message'].toString(),
+                              );
+                            } else {
+                              return MessageTile(
+                                showAvatar: true,
+                                avatarUrl: "https://tinyurl.com/5xmbz9k4",
+                                id: messageList[index]['id'].toString(),
+                                message:
+                                    messageList[index]['message'].toString(),
                               );
                             }
                           } else {
@@ -109,7 +114,8 @@ class ChattingScreen extends StatelessWidget {
               Container(
                 height: 70,
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                   child: Row(
                     children: [
                       Expanded(
@@ -125,7 +131,8 @@ class ChattingScreen extends StatelessWidget {
                                 color: kGreyColor,
                                 width: 2,
                               ),
-                              borderRadius: BorderRadius.all(Radius.circular(15)),
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(15)),
                             ),
                           ),
                         ),
@@ -135,7 +142,9 @@ class ChattingScreen extends StatelessWidget {
                         onPressed: () async {
                           // focusNode.unfocus();
                           print("onpressed");
-                          context.read<ChatsBloc>().add(const ChatsEvent.sendMessage());
+                          context
+                              .read<ChatsBloc>()
+                              .add(const ChatsEvent.sendMessage());
                         },
                         icon: const Icon(
                           Icons.send,
@@ -153,12 +162,6 @@ class ChattingScreen extends StatelessWidget {
     );
   }
 }
-
-
-
-
-
-
 
 // Padding(
 //         padding: const EdgeInsets.all(20),

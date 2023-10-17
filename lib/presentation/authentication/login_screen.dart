@@ -35,7 +35,9 @@ class LoginScreen extends StatelessWidget {
         height: double.infinity,
         width: double.infinity,
         decoration: const BoxDecoration(
-          image: DecorationImage(image: AssetImage("lib/core/assets/login-background.png"), fit: BoxFit.cover),
+          image: DecorationImage(
+              image: AssetImage("lib/core/assets/login-background.png"),
+              fit: BoxFit.cover),
         ),
         child: Padding(
           padding: const EdgeInsets.all(30.0),
@@ -48,7 +50,8 @@ class LoginScreen extends StatelessWidget {
                   valueListenable: _isLoading,
                   builder: (context, value, _) {
                     if (value == true) {
-                      return LoadingAnimationWidget.discreteCircle(color: kWhiteColor, size: 50);
+                      return LoadingAnimationWidget.discreteCircle(
+                          color: kWhiteColor, size: 50);
                     } else {
                       return Form(
                         key: _validationKey,
@@ -140,12 +143,15 @@ class LoginScreen extends StatelessWidget {
                       text: "Sign up",
                       recognizer: TapGestureRecognizer()
                         ..onTap = () {
-                          
                           Navigator.of(context).push(
-                            MaterialPageRoute(builder: (context) => SignupScreen()),
+                            MaterialPageRoute(
+                                builder: (context) => SignupScreen()),
                           );
                         },
-                      style: const TextStyle(decoration: TextDecoration.underline, fontWeight: FontWeight.bold, fontSize: 16),
+                      style: const TextStyle(
+                          decoration: TextDecoration.underline,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16),
                     ),
                   ],
                 ),
@@ -159,14 +165,20 @@ class LoginScreen extends StatelessWidget {
 
   Future validLogin(BuildContext context) async {
     _isLoading.value = true;
-    await authServices.loginUser(_emailController.text, _passwordController.text).then((value) async {
+    await authServices
+        .loginUser(_emailController.text, _passwordController.text)
+        .then((value) async {
       print(_emailController.text);
       if (value == true) {
         log("value is $value");
-        QuerySnapshot snapshot = await DatabaseServices(FirebaseAuth.instance.currentUser!.uid).getUserData(_emailController.text);
-        log(snapshot.docs.toString());
-        await HelperFunction.saveUserDataInSharedPref(true, snapshot.docs[0]["userName"], _emailController.text);
-        Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => MainPageScreen()));
+        QuerySnapshot snapshot =
+            await DatabaseServices(FirebaseAuth.instance.currentUser!.uid)
+                .getUserData(_emailController.text);
+        log("snapshot ${snapshot.docs.toString()}");
+        await HelperFunction.saveUserDataInSharedPref(
+            true, snapshot.docs[0]["userName"], _emailController.text);
+        Navigator.of(context).pushReplacement(
+            MaterialPageRoute(builder: (context) => MainPageScreen()));
         _isLoading.value = false;
         return true;
       } else {

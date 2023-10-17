@@ -25,7 +25,7 @@ class SearchBar extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.grey[200],
       ),
-      
+
       // onSubmitted: (value) {
       //   return ;
       // },

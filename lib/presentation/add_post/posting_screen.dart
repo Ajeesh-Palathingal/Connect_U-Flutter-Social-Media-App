@@ -48,13 +48,18 @@ class PostingScreen extends StatelessWidget {
               Container(
                 child: Column(
                   children: [
-                    imageFile != null ? Image.file(imageFile!) : Image(image: AssetImage("lib/core/assets/add_post_img.png")),
+                    imageFile != null
+                        ? Image.file(imageFile!)
+                        : Image(
+                            image:
+                                AssetImage("lib/core/assets/add_post_img.png")),
                     Padding(
                       padding: const EdgeInsets.all(10),
                       child: TextField(
                         maxLines: null,
                         keyboardType: TextInputType.multiline,
-                        decoration: InputDecoration.collapsed(hintText: "Add Caption"),
+                        decoration:
+                            InputDecoration.collapsed(hintText: "Add Caption"),
                       ),
                     )
                   ],
@@ -67,12 +72,6 @@ class PostingScreen extends StatelessWidget {
     );
   }
 }
-
-
-
-
-
-
 
 // Container(
 //       height: double.infinity,

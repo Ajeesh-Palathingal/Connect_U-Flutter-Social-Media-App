@@ -8,7 +8,6 @@ import 'package:connect_u/presentation/widgets/custom_text.dart';
 import 'package:connect_u/presentation/widgets/person_list_tile.dart';
 import 'package:flutter/material.dart';
 
-
 class UserProfileScreen extends StatelessWidget {
   const UserProfileScreen({super.key});
 
@@ -19,19 +18,11 @@ class UserProfileScreen extends StatelessWidget {
       profileImageUrl: "https://tinyurl.com/5xmbz9k4",
       name: "ME NEWBEI",
       profileName: "@mr.nobody",
-      
       numberOfFollowing: "300",
       posts: sampleImages,
     );
   }
 }
-
-
-
-
-
-
-
 
 // CustomScrollView(
 //           slivers: [

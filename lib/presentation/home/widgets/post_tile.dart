@@ -28,7 +28,9 @@ class PostTile extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
               child: GestureDetector(
                 onTap: () => Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => OthersProfileScreen(userName: name, profileImageUrl: profileImageUrl)),
+                  MaterialPageRoute(
+                      builder: (context) => OthersProfileScreen(
+                          userName: name, profileImageUrl: profileImageUrl)),
                 ),
                 child: Row(
                   children: [

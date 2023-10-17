@@ -49,10 +49,12 @@ class FollowingScreen extends StatelessWidget {
                     onTap: () => Navigator.of(context).push(MaterialPageRoute(
                         builder: (context) => OthersProfileScreen(
                               userName: "Person ${index + 1}",
-                              profileImageUrl: "https://i.pinimg.com/originals/cf/db/91/cfdb91284fd14307e9f70c56065ff0fc.jpg",
+                              profileImageUrl:
+                                  "https://i.pinimg.com/originals/cf/db/91/cfdb91284fd14307e9f70c56065ff0fc.jpg",
                             ))),
                     child: PersonListTile(
-                      image: "https://i.pinimg.com/originals/cf/db/91/cfdb91284fd14307e9f70c56065ff0fc.jpg",
+                      image:
+                          "https://i.pinimg.com/originals/cf/db/91/cfdb91284fd14307e9f70c56065ff0fc.jpg",
                       name: "Person ${index + 1}",
                     ),
                   );

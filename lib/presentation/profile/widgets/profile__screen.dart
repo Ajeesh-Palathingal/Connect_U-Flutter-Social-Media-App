@@ -69,7 +69,12 @@ class ProfileScreen extends StatelessWidget {
                           onTap: () async {
                             final authservice = AuthServices();
                             await authservice.signOut();
-                            Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (BuildContext context) => LoginScreen()), ModalRoute.withName('/'));
+                            Navigator.pushAndRemoveUntil(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (BuildContext context) =>
+                                        LoginScreen()),
+                                ModalRoute.withName('/'));
                           },
                           child: Icon(
                             Icons.logout,
@@ -135,7 +140,10 @@ class ProfileScreen extends StatelessWidget {
                         width: 100,
                         child: ElevatedButton(
                           onPressed: () {
-                            Navigator.of(context).push(MaterialPageRoute(builder: (context) => ChattingScreen(name: name, friendAvatarUrl: profileImageUrl)));
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => ChattingScreen(
+                                    name: name,
+                                    friendAvatarUrl: profileImageUrl)));
                           },
                           child: const Text("MESSAGE"),
                         ),
@@ -189,7 +197,8 @@ class ProfileScreen extends StatelessWidget {
                       backgroundColor: Colors.grey[350],
                     ),
                     onPressed: () {
-                      Navigator.of(context).push(MaterialPageRoute(builder: (context) => FollowingScreen()));
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => FollowingScreen()));
                     },
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,

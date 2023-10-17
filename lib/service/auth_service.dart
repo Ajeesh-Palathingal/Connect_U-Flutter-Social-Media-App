@@ -13,7 +13,9 @@ class AuthServices {
       log("in login email and password :$email  ,$password");
       final userinfo = await firebaseAuth.fetchSignInMethodsForEmail(email);
       log(userinfo.toString());
-      User user = (await firebaseAuth.signInWithEmailAndPassword(email: email, password: password)).user!;
+      User user = (await firebaseAuth.signInWithEmailAndPassword(
+              email: email, password: password))
+          .user!;
       //error is for signInwithemailand password function
 
       if (user != null) {
@@ -34,7 +36,9 @@ class AuthServices {
     final FirebaseAuth firebaseAuth = await FirebaseAuth.instance;
     try {
       log("in signup email and password :$email  ,$password");
-      User user = (await firebaseAuth.createUserWithEmailAndPassword(email: email, password: password)).user!;
+      User user = (await firebaseAuth.createUserWithEmailAndPassword(
+              email: email, password: password))
+          .user!;
 
       if (user != null) {
         await DatabaseServices(user.uid).updateUserData(userName, email);

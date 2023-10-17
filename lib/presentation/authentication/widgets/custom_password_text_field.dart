@@ -65,9 +65,12 @@ class CustomPasswordTextField extends StatelessWidget {
           ),
           autovalidateMode: AutovalidateMode.onUserInteraction,
           validator: (value) {
-            if ((value == null || value.length < 6) && hintText == "PASSWORD" && activateErrorText) {
+            if ((value == null || value.length < 6) &&
+                hintText == "PASSWORD" &&
+                activateErrorText) {
               return errorText;
-            } else if (hintText == "CONFIRM PASSWORD" && passwordController.text != confirmPasswordController.text) {
+            } else if (hintText == "CONFIRM PASSWORD" &&
+                passwordController.text != confirmPasswordController.text) {
               return errorText;
             }
           },

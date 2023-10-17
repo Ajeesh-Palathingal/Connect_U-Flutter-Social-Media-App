@@ -55,11 +55,11 @@ class _SplashScreenState extends State<SplashScreen> {
 
   Future<void> goToLogin() async {
     await Future.delayed(Duration(seconds: 1));
-    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (ctx) => LoginScreen()));
+    Navigator.of(context)
+        .pushReplacement(MaterialPageRoute(builder: (ctx) => LoginScreen()));
   }
 
   Future<void> verifyLoginStatus() async {
-    
     final helper = HelperFunction();
     final _loggedIn = await helper.checkUserLoginStatus();
     // final _sharedPref = await SharedPreferences.getInstance();
@@ -67,7 +67,8 @@ class _SplashScreenState extends State<SplashScreen> {
     print("loggin ${_loggedIn}");
     if (_loggedIn == true) {
       await Future.delayed(Duration(seconds: 1));
-      Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => MainPageScreen()));
+      Navigator.of(context).pushReplacement(
+          MaterialPageRoute(builder: (context) => MainPageScreen()));
     } else {
       goToLogin();
     }

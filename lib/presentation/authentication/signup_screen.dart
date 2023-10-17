@@ -15,7 +15,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 TextEditingController passwordController = TextEditingController();
 TextEditingController confirmPasswordController = TextEditingController();
-RegExp validMail = RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
+RegExp validMail = RegExp(
+    r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
 
 class SignupScreen extends StatelessWidget {
   SignupScreen({super.key});
@@ -46,7 +47,8 @@ class SignupScreen extends StatelessWidget {
                 valueListenable: _isLoading,
                 builder: (BuildContext context, bool value, _) {
                   if (value == true) {
-                    return LoadingAnimationWidget.discreteCircle(color: kWhiteColor, size: 50);
+                    return LoadingAnimationWidget.discreteCircle(
+                        color: kWhiteColor, size: 50);
                   } else {
                     return SingleChildScrollView(
                       child: Column(
@@ -73,7 +75,8 @@ class SignupScreen extends StatelessWidget {
                                   hintText: "USERNAME",
                                   controller: _userNameController,
                                   activateErrorText: true,
-                                  errorText: "Username must contain atleast 3 characters",
+                                  errorText:
+                                      "Username must contain atleast 3 characters",
                                 ),
 
                                 const SizedBox(
@@ -96,7 +99,8 @@ class SignupScreen extends StatelessWidget {
 
                                 CustomPasswordTextField(
                                   hintText: "PASSWORD",
-                                  errorText: "Password must contain atleast 6 characters",
+                                  errorText:
+                                      "Password must contain atleast 6 characters",
                                   controller: passwordController,
                                 ),
 
@@ -126,7 +130,8 @@ class SignupScreen extends StatelessWidget {
                                       backgroundColor: kWhiteColor,
                                     ),
                                     onPressed: () async {
-                                      await validateSignupAndRegisterUser(context);
+                                      await validateSignupAndRegisterUser(
+                                          context);
                                     },
                                     child: const CustomText(
                                       text: "SIGNUP",
@@ -142,7 +147,7 @@ class SignupScreen extends StatelessWidget {
                             height: 15,
                           ),
 
-                          //already a user login option
+                          //already a user (login option)
 
                           RichText(
                             text: TextSpan(
@@ -158,7 +163,10 @@ class SignupScreen extends StatelessWidget {
                                     ..onTap = () {
                                       Navigator.of(context).pop();
                                     },
-                                  style: const TextStyle(decoration: TextDecoration.underline, fontWeight: FontWeight.bold, fontSize: 16),
+                                  style: const TextStyle(
+                                      decoration: TextDecoration.underline,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 16),
                                 ),
                               ],
                             ),
@@ -175,12 +183,20 @@ class SignupScreen extends StatelessWidget {
   }
 
   Future<bool> validateSignupAndRegisterUser(BuildContext context) async {
-    if (_userNameController.text.length > 2 && validMail.hasMatch(_emailController.text) && passwordController.text.length > 5 && passwordController.text == confirmPasswordController.text) {
+    if (_userNameController.text.length > 2 &&
+        validMail.hasMatch(_emailController.text) &&
+        passwordController.text.length > 5 &&
+        passwordController.text == confirmPasswordController.text) {
       _isLoading.value = true;
-      await authServices.registerUser(_userNameController.text, _emailController.text, passwordController.text).then((value) async {
+      await authServices
+          .registerUser(_userNameController.text, _emailController.text,
+              passwordController.text)
+          .then((value) async {
         if (value == true) {
-          await HelperFunction.saveUserDataInSharedPref(true, _userNameController.text, _emailController.text);
-          Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => MainPageScreen()));
+          await HelperFunction.saveUserDataInSharedPref(
+              true, _userNameController.text, _emailController.text);
+          Navigator.of(context).pushReplacement(
+              MaterialPageRoute(builder: (context) => MainPageScreen()));
           _isLoading.value = false;
 
           return true;

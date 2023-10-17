@@ -10,9 +10,7 @@ class PosterImageCard extends StatelessWidget {
   final imageUrl;
   @override
   Widget build(BuildContext context) {
-    
     return Container(
-      
       decoration: BoxDecoration(
         color: Colors.grey[300],
         borderRadius: BorderRadius.all(Radius.circular(10)),

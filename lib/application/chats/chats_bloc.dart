@@ -14,8 +14,7 @@ class ChatsBloc extends Bloc<ChatsEvent, ChatsState> {
       print("Value cleared ${sendMessageController.text}");
       try {
         print("working send message bloc inside");
-        
-        
+
         messages.add({'message': sendMessageController.text, 'id': 2});
         sendMessageController.clear();
         emit(state.copyWith(messageList: messages, num: state.num + 1));
@@ -23,7 +22,6 @@ class ChatsBloc extends Bloc<ChatsEvent, ChatsState> {
         print("error in bloc");
         print(e);
       } finally {
-        
         messageListScrollController.animateTo(
           messageListScrollController.position.maxScrollExtent * 1.5,
           duration: const Duration(milliseconds: 600),

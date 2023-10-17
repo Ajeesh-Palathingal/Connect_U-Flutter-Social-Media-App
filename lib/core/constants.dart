@@ -5,9 +5,21 @@ const String LOGIN_STATUS = 'loggedin';
 List<Map<String, Object>> messages = [
   {'message': "Hello", 'id': 2},
   {'message': "How are you?", 'id': 1},
-  {'message': "I'm fine, i'm thinking about new project. I want to open an online store", 'id': 2},
-  {'message': "But I don't know what to sell. Maybe I will sell stones and water", 'id': 2},
-  {'message': "Yeah it's great idea, you know everyone needs water, I dont know about stones", 'id': 1},
+  {
+    'message':
+        "I'm fine, i'm thinking about new project. I want to open an online store",
+    'id': 2
+  },
+  {
+    'message':
+        "But I don't know what to sell. Maybe I will sell stones and water",
+    'id': 2
+  },
+  {
+    'message':
+        "Yeah it's great idea, you know everyone needs water, I dont know about stones",
+    'id': 1
+  },
 ];
 
 final sampleImages = [

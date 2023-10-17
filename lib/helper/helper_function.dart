@@ -5,7 +5,8 @@ class HelperFunction {
   static String userNameKey = "USERNAME";
   static String emailKey = "EMAIL";
 
-  static Future saveUserDataInSharedPref(bool loginStatus, String userName, String email) async {
+  static Future saveUserDataInSharedPref(
+      bool loginStatus, String userName, String email) async {
     print("saving values");
     final _sharedPref = await SharedPreferences.getInstance();
     _sharedPref.setBool(loginStatusKey, true);

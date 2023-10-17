@@ -68,7 +68,8 @@ class AddPostScreen extends StatelessWidget {
     } else {
       imageFile = File(image.path);
       print(image.path);
-      Navigator.of(ctx).push(MaterialPageRoute(builder: (ctx) => PostingScreen(imageFile: imageFile)));
+      Navigator.of(ctx).push(MaterialPageRoute(
+          builder: (ctx) => PostingScreen(imageFile: imageFile)));
     }
   }
 }

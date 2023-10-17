@@ -22,10 +22,14 @@ class BottomNavigationWidget extends StatelessWidget {
             unselectedItemColor: Colors.black54,
             items: const [
               BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-              BottomNavigationBarItem(icon: Icon(Icons.search), label: "Search"),
-              BottomNavigationBarItem(icon: Icon(Icons.add_a_photo_outlined), label: "Add Post"),
-              BottomNavigationBarItem(icon: Icon(Icons.messenger_outline), label: "Chats"),
-              BottomNavigationBarItem(icon: Icon(Icons.person_2_outlined), label: "Profile"),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.search), label: "Search"),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.add_a_photo_outlined), label: "Add Post"),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.messenger_outline), label: "Chats"),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.person_2_outlined), label: "Profile"),
             ],
           );
         });
